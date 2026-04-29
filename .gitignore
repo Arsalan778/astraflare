@@ -74,13 +74,13 @@ server/scratch/
 scratch/
 
 # ML model files (too large for GitHub - store externally)
-ml-service/saved_models/
-*.joblib
-*.pkl
-*.h5
-*.pt
-*.pth
-*.onnx
+# ml-service/saved_models/
+# *.joblib
+# *.pkl
+# *.h5
+# *.pt
+# *.pth
+# *.onnx
 
 # Python cache
 **/__pycache__/
