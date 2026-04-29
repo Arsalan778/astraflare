@@ -1,0 +1,92 @@
+﻿# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+ml-service/node_modules/
+
+# Environment files - NEVER COMMIT
+.env
+.env.local
+.env.*.local
+client/.env
+server/.env
+ml-service/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*\.class
+venv/
+env/
+ml-service/venv/
+ml-service/__pycache__/
+**/__pycache__/
+
+# Build outputs
+dist/
+build/
+client/dist/
+client/build/
+server/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+temp_*.py
+*.tmp
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Docker overrides
+docker-compose.override.yml
+
+# Server logs
+server/logs/
+logs/
+*.log.gz
+
+# User uploads (privacy!)
+server/uploads/
+uploads/
+
+# ML training artifacts
+ml-service/catboost_info/
+catboost_info/
+
+# Scratch/dev files
+server/scratch/
+scratch/
+
+# ML model files (too large for GitHub - store externally)
+ml-service/saved_models/
+*.joblib
+*.pkl
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Allow .gitkeep files inside ignored folders
+!server/logs/.gitkeep
+!server/uploads/.gitkeep
+!ml-service/saved_models/.gitkeep
