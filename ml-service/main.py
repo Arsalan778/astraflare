@@ -95,14 +95,19 @@ async def lifespan(app: FastAPI):
 
     # --- Load Pre-trained Models ---
     model_dir = settings.MODEL_DIR
-    try:
-        if os.path.exists(os.path.join(model_dir, "gradient_boosting.joblib")):
-            ensemble.load_models(model_dir)
-            logger.info("✅ Pre-trained models loaded from disk")
-        else:
-            logger.info("⚠️ No pre-trained models found. Will train on first request.")
-    except Exception as e:
-        logger.warning(f"⚠️ Could not load models: {e}")
+    model_dir = settings.MODEL_DIR
+try:
+    gb_path = os.path.join(model_dir, "gradient_boosting.joblib")
+    logger.info(f"Looking for models in: {model_dir}")
+    logger.info(f"gradient_boosting.joblib exists: {os.path.exists(gb_path)}")
+
+    if os.path.exists(gb_path):
+        ensemble.load_models(model_dir)
+        logger.info("✅ Pre-trained models loaded from disk")
+    else:
+        logger.info("⚠️ No pre-trained models found. Will train on first request.")
+except Exception:
+    logger.exception("⚠️ Could not load models")
 
     logger.info("=" * 60)
     logger.info("✅ AstraFlare ML Service Ready")
